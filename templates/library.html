@@ -1,0 +1,15 @@
+<h1>My Library</h1>
+
+<a href="/add-book">Add Book</a>
+
+<ul>
+  {% for book in books %}
+    <li>
+      <a href="/book/{{ book.id }}">
+        {{ book.title }} – {{ book.author }}
+      </a>
+    </li>
+  {% else %}
+    <li>No books yet</li>
+  {% endfor %}
+</ul>
