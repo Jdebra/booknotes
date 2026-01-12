@@ -1,15 +1,29 @@
-<h1>My Library</h1>
+{% extends "base.html" %} <!-- tells Jinja that this template should replace the blocks from the base template -->
+{% block content %}
 
-<a href="/add-book">Add Book</a>
+<div class="library-container">
+    <h1>My library</h1>
+    <p class="subtitle">Your collection of books with notes and quotes</p>
 
-<ul>
-  {% for book in books %}
-    <li>
-      <a href="/book/{{ book.id }}">
-        {{ book.title }} – {{ book.author }}
-      </a>
-    </li>
-  {% else %}
-    <li>No books yet</li>
-  {% endfor %}
-</ul>
+    <div class="book-grid">
+      {% for book in books %}
+        <a href="{{ url_for('book_detail', book_id=book.id) }}"
+           class="book-card">
+
+           <div class="book-cover">
+            <img
+               src="{{ url_for('static', filename=book.cover)}}"
+               alt="{{ book.title }}">
+           </div>
+
+           <div class="book-info">
+             <h3>{{ book.title }}</h3>
+             <p>{{ book.author }}</p>
+           </div>
+
+        </a>
+      {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

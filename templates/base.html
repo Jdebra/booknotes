@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Website</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <header class="app-header">
+        <div class="header-inner">
+
+            <div class="header-left">
+                <span class="logo">📓</span>
+                <span class="app-name">Book Notes</span>
+            </div>
+
+            <div class="header-right">
+                {% if current_user.is_authenticated %}
+                 <span class="welcome">Welcome, {{  current_user.username  }}</span>
+                 <a href="{{ url_for('logout')  }}" class="logout-link">Logout</a>
+                {% else %}
+                 <a href="{{ url_for('login') }}">Login</a>
+                {% endif %}
+            </div>
+        </div>
+    </header>
+    <div class="topnav">
+        <a href="#my-library">
+            <img src="{{ url_for('static', filename='navicons/library.png') }}">
+            My Library
+        </a>
+        <a href="#browse">
+            <img src="{{ url_for('static', filename='navicons/browse.png') }}">
+            Browse Books
+        </a>
+    </div>
+    <main>
+        {% block content %}{% endblock %}  <!-- some part will change and will fit here -->
+    </main>
+
+</body>
+</html>

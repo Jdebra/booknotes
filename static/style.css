@@ -1,0 +1,212 @@
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  background: #f7f7f7;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 800px;
+  margin: 60px auto;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.primary-btn {
+  display: inline-block;
+  margin-top: 20px;
+  background: #0f172a;
+  color: white;
+  padding: 10px 18px;
+  border-radius: 8px;
+  text-decoration: none;
+}
+
+.app-header {
+    background-color: #ffffff;
+    border-bottom: 1px solid #eee;
+}
+
+.header-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 16px 20px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.logo{
+    font-size: 1.5rem;
+}
+
+.app-name {
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.topnav {
+  width: 21%;
+  border-radius: 20px;
+  margin-top: 25px;
+  margin-left: 95px;
+  background-color: #e0e0e0;
+  overflow: auto;
+}
+
+.topnav a {
+  float: left;
+  color: #000000;
+  text-align: center;
+  padding: 13px 18px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.topnav a:hover {
+  background-color: #fefefe;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #fefefe;
+  color: black;
+}
+
+.welcome {
+    color: #555;
+    font-size: 0.9rem;
+}
+
+.logout-link {
+    text-decoration: none;
+    color: #0f172a;
+    font-weight: 500;
+}
+
+.library-container {
+    max-width: 1100px;
+    margin: 80px;
+    margin-top: 30px;
+    padding: 0 20px
+}
+
+.library-container h1 {
+    font-size: 34px;
+    font-weight: 600;
+    margin-bottom: -15px;
+}
+
+.library-container .subtitle {
+    font-size: 20px;
+    color: #666;
+    margin-bottom: 40px;
+}
+
+.library-container .book-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+}
+
+.book-card {
+    display: block; /* makes the whole card clickable */
+    text-decoration: none; /* removes link underline */
+    color: inherit; /* keeps text color normal */
+
+    background: #ffffff;
+    border-radius: 12px;
+    overflow: hidden; /* clips image to rounded corners */
+
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.book-card:hover {
+    transform: translateY(-4px); /* card lifts when hovered over */
+    box-shadow: 0  10px 28px rgba(0, 0, 0, 0.1); /* shadow deepens */
+}
+
+.book-cover {
+    height: 370px;
+    width: 100%;
+}
+
+.book-cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* prevents distortion */
+    display: block; /* removes inline image gaps */
+}
+
+.book-card .book-info {
+    padding: 12px;
+    text-align: center;
+}
+
+.book-card .book-info h3 {
+  font-size: 1.1rem;
+  margin: 8px 0 4px;
+}
+
+.book-card .book-info p {
+  font-size: 0.9rem;
+  color: #666;
+  margin: 0;
+}
+
+h1, h2, h3 {
+  margin-top: 0;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid #eee;
+  margin: 30px 0;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  padding: 12px;
+  margin-bottom: 12px;
+  border-radius: 6px;
+  background: #fafafa;
+}
+
+/* Quote content */
+blockquote {
+  margin: 0;
+  padding-left: 12px;
+  border-left: 4px solid #ccc;
+  font-style: italic;
+  color: #555;
+}
+
+/* Timestamp */
+small {
+  color: #888;
+}
+
+/* Quote container */
+li[data-type="quote"] {
+  background: #f3f3f3;
+}

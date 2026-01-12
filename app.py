@@ -8,21 +8,27 @@ from werkzeug.security import generate_password_hash, check_password_hash
 MOCK_BOOKS = [
     {
         "id": 1,
-        "title": "The Little Prince",
-        "author": "Antoine de Saint-Exupéry",
-        "cover": ""
+        "title": "The Great Gatsby",
+        "author": "F. Scott Fitzgerald",
+        "cover": "images/thegreatgatsby.jpg"
     },
     {
         "id": 2,
         "title": "1984",
         "author": "George Orwell",
-        "cover": ""
+        "cover": "images/1984.jpg"
     },
     {
         "id": 3,
         "title": "Pride and Prejudice",
         "author": "Jane Austen",
-        "cover": ""
+        "cover": "images/prideandprejudice.jpg"
+    },
+    {
+        "id": 4, 
+        "title": "Alice in Wonderland",
+        "author": "Lewis Carroll",
+        "cover": "images/aliceinwonderland.jpg"
     },
 ]
 
@@ -47,12 +53,7 @@ with app.app_context():
 
 @app.route("/")
 def home():
-    if current_user.is_authenticated:
-        return f"""
-        <h1>Hello {current_user.username}</h1>
-        <a href="/logout">Logout</a>
-        """
-    return '<a href="/login">Login</a>'
+    return render_template("index.html")
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
@@ -110,6 +111,7 @@ def add_book():
         new_book = Book(
             title=title,
             author=author,
+            cover="image/default.jpg",
             user_id=current_user.id
         )
 
@@ -151,10 +153,12 @@ def library():
 def add_mock_book():
     title = request.form["title"]
     author = request.form["author"]
+    cover = request.form.get("cover", "images/default.jpg") #get cover if passed
 
     new_book = Book(
         title=title,
         author=author,
+        cover=cover,
         user_id=current_user.id
     )
 

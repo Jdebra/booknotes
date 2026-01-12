@@ -1,34 +1,51 @@
-<h1>{{ book.title }}</h1>
-<p>Author: {{ book.author }}</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ book.title }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
 
-<hr>
+  <div class="container">
 
-<h2>Notes</h2>
+    <h1>{{ book.title }}</h1>
+    <p>Author: {{ book.author }}</p>
 
-<ul>
-  {% for note in book.notes %}
-    <li>
-      {{ note.content }}
+    <hr>
 
-      <form method="POST"
-            action="/note/{{ note.id }}/delete"
-            style="display:inline;">
-        <button type="submit">Delete</button>
-      </form>
-    </li>
-  {% else %}
-    <li>No notes yet</li>
-  {% endfor %}
-</ul>
+    <h2>Notes</h2>
 
-<hr>
+    <ul>
+      {% for note in book.notes %}
+        <li>
+          {{ note.content }}
 
-<h3>Add a note</h3>
+          <form method="POST"
+                action="/note/{{ note.id }}/delete"
+                style="display:inline;">
+            <button type="submit">Delete</button>
+          </form>
+        </li>
+      {% else %}
+        <li>No notes yet</li>
+      {% endfor %}
+    </ul>
 
-<form method="POST">
-  <textarea name="content" required></textarea><br>
-  <button type="submit">Save Note</button>
-</form>
+    <hr>
 
-<br>
-<a href="{{ url_for('library') }}">Back to Library</a>
+    <h3>Add a note</h3>
+
+    <form method="POST">
+      <textarea name="content" required></textarea><br>
+      <button type="submit">Save Note</button>
+    </form>
+
+    <br>
+    <a href="{{ url_for('library') }}">Back to Library</a>
+
+  </div>
+
+</body>
+</html>

@@ -1,2 +1,2 @@
 # booknotes
-an app to save notes about books while reading it 
+an app to save notes and quotes about books
